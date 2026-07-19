@@ -1,0 +1,39 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianstaresina/portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "photography",
+    "astro"
+  ],
+  "author": "Christian Staresina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christianstaresina/portfolio/issues"
+  },
+  "homepage": "https://github.com/christianstaresina/portfolio#readme",
+  "dependencies": {
+    "astro": "^7.1.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
+  }
+}
