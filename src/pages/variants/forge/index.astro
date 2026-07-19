@@ -1,0 +1,15 @@
+---
+import VariantLayout from "../../../layouts/VariantLayout.astro";
+import VariantPage from "../../../components/variants/VariantPage.astro";
+
+const variant = "forge" as const;
+---
+
+<VariantLayout
+  variant={variant}
+  current="home"
+  title="Forge — Christian Staresina"
+  description="Forge mockup: industrial charcoal portfolio layout with dark mode."
+>
+  <VariantPage variant={variant} page="home" />
+</VariantLayout>

@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Barlow+Condensed:wght@600;700&display=swap");
+@import url("./shared.css");
+
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #e8e6e1;
+  --surface: #f3f1ec;
+  --surface-hover: #ddd9d1;
+  --ink: #16181c;
+  --muted: #5a606a;
+  --line: rgba(22, 24, 28, 0.16);
+  --line-strong: rgba(22, 24, 28, 0.35);
+  --accent: #b84a1f;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", "Segoe UI", sans-serif;
+  --display-weight: 700;
+  --display-tracking: 0.01em;
+  --display-case: uppercase;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101217;
+  --surface: #171b22;
+  --surface-hover: #222833;
+  --ink: #e8eaee;
+  --muted: #9aa1ad;
+  --line: rgba(232, 234, 238, 0.14);
+  --line-strong: rgba(232, 234, 238, 0.28);
+  --accent: #d96534;
+}
+
+html[data-variant="forge"] body {
+  background:
+    linear-gradient(90deg, rgba(184, 74, 31, 0.08), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 47px,
+      rgba(22, 24, 28, 0.04) 47px,
+      rgba(22, 24, 28, 0.04) 48px
+    ),
+    var(--bg);
+}
+
+html[data-theme="dark"][data-variant="forge"] body {
+  background:
+    linear-gradient(90deg, rgba(217, 101, 52, 0.1), transparent 30%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 47px,
+      rgba(232, 234, 238, 0.03) 47px,
+      rgba(232, 234, 238, 0.03) 48px
+    ),
+    var(--bg);
+}
+
+html[data-variant="forge"] .v-brand {
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+html[data-variant="forge"] .v-btn,
+html[data-variant="forge"] .theme-toggle {
+  border-radius: 0;
+}

@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Oswald:wght@500;600&display=swap");
+@import url("./shared.css");
+
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #e4e6df;
+  --surface: #eef0e9;
+  --surface-hover: #d7dbd0;
+  --ink: #1c2218;
+  --muted: #5f6658;
+  --line: rgba(28, 34, 24, 0.16);
+  --line-strong: rgba(28, 34, 24, 0.32);
+  --accent: #4d6b3c;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+  --display-weight: 600;
+  --display-tracking: 0.02em;
+  --display-case: uppercase;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121610;
+  --surface: #1a2118;
+  --surface-hover: #253022;
+  --ink: #e6e8e1;
+  --muted: #9aa392;
+  --line: rgba(230, 232, 225, 0.14);
+  --line-strong: rgba(230, 232, 225, 0.28);
+  --accent: #7fa86a;
+}
+
+html[data-variant="field"] body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(77, 107, 60, 0.14), transparent 24rem),
+    linear-gradient(var(--line), var(--line)) 0 0 / 100% 1px no-repeat,
+    var(--bg);
+}
+
+html[data-variant="field"] .v-brand {
+  border-radius: 2px;
+}
+
+html[data-variant="field"] .v-btn,
+html[data-variant="field"] .theme-toggle {
+  border-radius: 2px;
+}
+
+html[data-variant="field"] .v-title {
+  max-width: 11ch;
+}

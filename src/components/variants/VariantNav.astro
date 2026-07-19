@@ -1,0 +1,36 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { navItems, type VariantId } from "../../data/site";
+
+interface Props {
+  variant: VariantId;
+  current: string;
+}
+
+const { variant, current } = Astro.props;
+const base = `/variants/${variant}`;
+---
+
+<header class="v-header">
+  <a class="v-brand" href={`${base}/`}>CS</a>
+
+  <nav class="v-nav" aria-label="Primary">
+    {
+      navItems.map((item) => {
+        const href = item.href ? `${base}/${item.href}/` : `${base}/`;
+        const isActive =
+          current === item.href || (item.href === "" && current === "home");
+        return (
+          <a class:list={["v-nav__link", { "is-active": isActive }]} href={href}>
+            {item.label}
+          </a>
+        );
+      })
+    }
+  </nav>
+
+  <div class="v-header__tools">
+    <ThemeToggle variant={variant} />
+    <a class="v-nav__link v-nav__link--quiet" href="/variants/">All variants</a>
+  </div>
+</header>

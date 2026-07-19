@@ -1,0 +1,44 @@
+---
+const storageKey = "portfolio-theme";
+---
+
+<button
+  class="theme-toggle"
+  type="button"
+  data-theme-toggle
+  data-storage-key={storageKey}
+  aria-label="Toggle dark mode"
+>
+  <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"></span>
+  <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"></span>
+  <span class="theme-toggle__label" data-theme-label>Dark</span>
+</button>
+
+<script is:inline>
+  (() => {
+    function syncLabels(theme) {
+      document.querySelectorAll("[data-theme-label]").forEach((label) => {
+        label.textContent = theme === "dark" ? "Light" : "Dark";
+      });
+    }
+
+    function setTheme(key, theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem(key, theme);
+      syncLabels(theme);
+    }
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      const key = button.getAttribute("data-storage-key");
+      if (!key) return;
+
+      syncLabels(document.documentElement.dataset.theme || "light");
+
+      button.addEventListener("click", () => {
+        const next =
+          document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        setTheme(key, next);
+      });
+    });
+  })();
+</script>

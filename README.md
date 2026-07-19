@@ -1,9 +1,9 @@
 # Christian Staresina — Portfolio
 
-A professional personal portfolio built with [Astro](https://astro.build/).
-The first release is a focused landing page linking to
-[Christian Staresina Prints](https://christianstaresinaprints.com), with room
-to add résumé, skills, projects, hobbies, and interests later.
+Personal portfolio site built with [Astro](https://astro.build/) using the
+**Signal** design system: navy technical layout, simple menu, and dark/light
+mode. Includes Home, Resume, and Hobbies, plus a link to
+[Christian Staresina Prints](https://christianstaresinaprints.com).
 
 ## Local development
 
@@ -15,6 +15,9 @@ npm run dev
 ```
 
 Astro starts the local site at `http://localhost:4321`.
+
+Optional design mockups (Forge / Field / Signal) remain at
+`http://localhost:4321/variants/` for comparison.
 
 ## Quality checks
 
@@ -36,5 +39,5 @@ commits pushed to GitHub with:
 - Build output directory: `dist`
 - Pages URL: <https://portfolio-2u5.pages.dev>
 
-The custom domain will be connected in Cloudflare Pages after the design is
-approved.
+The custom domain will be connected in Cloudflare Pages after content is
+finalized.

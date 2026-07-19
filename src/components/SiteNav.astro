@@ -1,0 +1,33 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { navItems } from "../data/site";
+
+interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+---
+
+<header class="v-header">
+  <a class="v-brand" href="/" aria-label="Christian Staresina, home">CS</a>
+
+  <nav class="v-nav" aria-label="Primary">
+    {
+      navItems.map((item) => {
+        const href = item.href ? `/${item.href}/` : "/";
+        const isActive =
+          current === item.href || (item.href === "" && current === "home");
+        return (
+          <a class:list={["v-nav__link", { "is-active": isActive }]} href={href}>
+            {item.label}
+          </a>
+        );
+      })
+    }
+  </nav>
+
+  <div class="v-header__tools">
+    <ThemeToggle />
+  </div>
+</header>

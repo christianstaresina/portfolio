@@ -1,74 +1,12 @@
 ---
-import "../styles/global.css";
-
-const shopUrl = "https://christianstaresinaprints.com";
-const pageTitle = "Christian Staresina — Personal Portfolio";
-const pageDescription =
-  "Christian Staresina's personal portfolio. Explore original photography prints while the full portfolio takes shape.";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SitePage from "../components/SitePage.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={pageDescription} />
-    <meta name="theme-color" content="#f2efe9" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta name="twitter:card" content="summary" />
-    <title>{pageTitle}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <main class="page-shell">
-      <header class="site-header" aria-label="Site header">
-        <a class="monogram" href="/" aria-label="Christian Staresina, home">CS</a>
-        <div class="header-actions">
-          <a class="header-link" href="/repositories/">Repositories</a>
-          <p class="availability">
-            <span aria-hidden="true"></span>
-            Portfolio in progress
-          </p>
-        </div>
-      </header>
-
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="eyebrow" aria-hidden="true">Personal portfolio · 2026</div>
-
-        <h1 id="hero-title">
-          Christian
-          <span>Staresina</span>
-        </h1>
-
-        <div class="hero-details">
-          <p class="intro">
-            A personal home for my work, skills, hobbies, and interests is
-            taking shape. In the meantime, explore a collection of my
-            photography available as fine-art prints.
-          </p>
-
-          <a
-            class="shop-link"
-            href={shopUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Visit Christian Staresina Prints (opens in a new tab)"
-          >
-            <span>Visit the print shop</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19 19 5M8 5h11v11"></path>
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <p>Based in the United States</p>
-        <p>&copy; {new Date().getFullYear()} Christian Staresina</p>
-      </footer>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  current="home"
+  title="Christian Staresina — Personal Portfolio"
+  description="Christian Staresina's portfolio: projects, resume, hobbies, and photography prints."
+>
+  <SitePage page="home" />
+</BaseLayout>

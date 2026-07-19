@@ -1,0 +1,54 @@
+---
+import SiteNav from "../components/SiteNav.astro";
+import "../styles/global.css";
+
+interface Props {
+  current: string;
+  title: string;
+  description: string;
+}
+
+const { current, title, description } = Astro.props;
+const storageKey = "portfolio-theme";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0c121a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline define:vars={{ storageKey }}>
+      (() => {
+        const stored = localStorage.getItem(storageKey);
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : prefersDark
+              ? "dark"
+              : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="v-shell">
+      <SiteNav current={current} />
+      <main class="v-main">
+        <slot />
+      </main>
+      <footer class="v-footer">
+        <p>Based in the United States</p>
+        <p>&copy; {new Date().getFullYear()} Christian Staresina</p>
+      </footer>
+    </div>
+  </body>
+</html>

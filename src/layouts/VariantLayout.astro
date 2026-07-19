@@ -1,0 +1,52 @@
+---
+import VariantNav from "../components/variants/VariantNav.astro";
+import { type VariantId } from "../data/site";
+
+interface Props {
+  variant: VariantId;
+  current: string;
+  title: string;
+  description: string;
+}
+
+const { variant, current, title, description } = Astro.props;
+const storageKey = `portfolio-theme-${variant}`;
+---
+
+<!doctype html>
+<html lang="en" data-variant={variant}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href={`/styles/variants/${variant}.css`} />
+    <script is:inline define:vars={{ storageKey }}>
+      (() => {
+        const stored = localStorage.getItem(storageKey);
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : prefersDark
+              ? "dark"
+              : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="v-shell">
+      <VariantNav variant={variant} current={current} />
+      <main class="v-main">
+        <slot />
+      </main>
+      <footer class="v-footer">
+        <p>Mockup variant · {variant}</p>
+        <p>&copy; {new Date().getFullYear()} Christian Staresina</p>
+      </footer>
+    </div>
+  </body>
+</html>

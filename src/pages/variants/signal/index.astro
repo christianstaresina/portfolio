@@ -1,0 +1,15 @@
+---
+import VariantLayout from "../../../layouts/VariantLayout.astro";
+import VariantPage from "../../../components/variants/VariantPage.astro";
+
+const variant = "signal" as const;
+---
+
+<VariantLayout
+  variant={variant}
+  current="home"
+  title="Signal — Christian Staresina"
+  description="Signal mockup: navy technical portfolio layout with dark mode."
+>
+  <VariantPage variant={variant} page="home" />
+</VariantLayout>

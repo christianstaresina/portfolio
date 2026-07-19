@@ -1,0 +1,129 @@
+---
+import {
+  about,
+  hobbies,
+  linkedInUrl,
+  resume,
+  resumePdfUrl,
+} from "../data/site";
+
+interface Props {
+  page: "home" | "about" | "resume" | "hobbies";
+}
+
+const { page } = Astro.props;
+---
+
+{
+  page === "home" && (
+    <section>
+      <p class="v-kicker">Christian Staresina · Portfolio</p>
+      <h1 class="v-title">Work, craft, and interests in one place</h1>
+      <p class="v-lede">
+        Electrical engineer based in Raleigh, NC — building PCB designs at work,
+        practical tools in public, and photography on the side.
+      </p>
+      <div class="v-actions">
+        <a class="v-btn" href="/resume/">
+          Resume
+        </a>
+        <a class="v-btn v-btn--ghost" href="/hobbies/">
+          Hobbies
+        </a>
+      </div>
+    </section>
+  )
+}
+
+{
+  page === "about" && (
+    <section>
+      <p class="v-kicker">About</p>
+      <p class="v-lede">{about.placeholder}</p>
+    </section>
+  )
+}
+
+{
+  page === "resume" && (
+    <section>
+      <p class="v-kicker">Resume</p>
+      <h1 class="v-title">Experience & skills</h1>
+      <p class="v-lede">{resume.summary}</p>
+      <div class="v-actions">
+        <a class="v-btn" href={resumePdfUrl} download>
+          Download PDF
+        </a>
+        <a class="v-btn v-btn--ghost" href={linkedInUrl} target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+
+      <ol class="v-timeline">
+        {resume.experience.map((job) => (
+          <li class="v-timeline__row">
+            <p class="v-timeline__period">{job.period}</p>
+            <div class="v-timeline__body">
+              <h2 class="v-timeline__role">{job.role}</h2>
+              <p class="v-timeline__org">{job.org}</p>
+              <p class="v-timeline__focus">{job.focus}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="v-resume-foot">
+        <section class="v-resume-block" aria-labelledby="resume-education">
+          <h2 id="resume-education" class="v-resume-block__title">
+            Education
+          </h2>
+          <ul class="v-resume-block__list">
+            {resume.education.map((item) => (
+              <li>
+                <span class="v-resume-block__primary">{item.credential}</span>
+                <span class="v-resume-block__secondary">
+                  {item.school} · {item.period}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="v-resume-block" aria-labelledby="resume-skills">
+          <h2 id="resume-skills" class="v-resume-block__title">
+            Skills
+          </h2>
+          <p class="v-resume-block__skills">{resume.skills}</p>
+        </section>
+      </div>
+    </section>
+  )
+}
+
+{
+  page === "hobbies" && (
+    <section>
+      <p class="v-kicker">Hobbies & interests</p>
+      <h1 class="v-title">Subjects outside the day job</h1>
+      <p class="v-lede">Photography, training tools, and personal finance systems.</p>
+
+      <ul class="v-list">
+        {hobbies.map((hobby) => (
+          <li>
+            <a
+              href={hobby.link.href}
+              target={hobby.link.external ? "_blank" : undefined}
+              rel={hobby.link.external ? "noreferrer" : undefined}
+            >
+              <div class="v-meta">
+                <span>{hobby.meta}</span>
+              </div>
+              <h2>{hobby.title}</h2>
+              <p>{hobby.summary}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
