@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+
+const repositories = [
+  {
+    number: "01",
+    name: "Laser Timer System V1",
+    slug: "laser-timer-system-v1",
+    language: "C",
+    description:
+      "A portable start-and-finish gate system that uses lasers to measure elapsed time and average speed for sprint training.",
+    url: "https://github.com/christianstaresina/laser-timer-system-v1",
+  },
+  {
+    number: "02",
+    name: "Savings Portfolio Dashboard",
+    slug: "savings-portfolio-dashboard",
+    language: "TypeScript",
+    description:
+      "A privacy-first desktop dashboard for tracking savings and investments locally, with live prices, charts, forecasts, and history tools.",
+    url: "https://github.com/christianstaresina/savings-portfolio-dashboard",
+  },
+];
+
+const pageTitle = "Repositories — Christian Staresina";
+const pageDescription =
+  "Selected open-source projects by Christian Staresina, including a laser timer system and a privacy-first savings portfolio dashboard.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#f2efe9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta name="twitter:card" content="summary" />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main class="page-shell repositories-shell">
+      <header class="site-header" aria-label="Site header">
+        <a class="monogram" href="/" aria-label="Christian Staresina, home">CS</a>
+        <nav class="header-actions" aria-label="Primary navigation">
+          <a class="header-link" href="/">Home</a>
+          <a
+            class="header-link"
+            href="https://christianstaresinaprints.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Print shop
+          </a>
+        </nav>
+      </header>
+
+      <section class="repositories" aria-labelledby="repositories-title">
+        <div class="section-intro">
+          <p class="eyebrow">Public work · GitHub</p>
+          <h1 id="repositories-title">Selected <span>repositories</span></h1>
+          <p class="repositories-intro">
+            A growing collection of practical systems, tools, and experiments.
+            Each project is public and available to explore on GitHub.
+          </p>
+        </div>
+
+        <ol class="repository-list">
+          {
+            repositories.map((repository) => (
+              <li>
+                <a
+                  class="repository-card"
+                  href={repository.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${repository.name} on GitHub (opens in a new tab)`}
+                >
+                  <div class="repository-meta">
+                    <span>{repository.number}</span>
+                    <span>{repository.language}</span>
+                  </div>
+                  <div class="repository-copy">
+                    <h2>{repository.name}</h2>
+                    <p>{repository.description}</p>
+                  </div>
+                  <div class="repository-footer">
+                    <span>github.com/christianstaresina/{repository.slug}</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 19 19 5M8 5h11v11" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <footer class="site-footer">
+        <p>Open source & personal projects</p>
+        <p>&copy; {new Date().getFullYear()} Christian Staresina</p>
+      </footer>
+    </main>
+  </body>
+</html>
