@@ -34,6 +34,7 @@ commits pushed to GitHub with:
 - Framework preset: Astro
 - Build command: `npm run build`
 - Build output directory: `dist`
+- Pages URL: <https://portfolio-2u5.pages.dev>
 
 The custom domain will be connected in Cloudflare Pages after the design is
 approved.
