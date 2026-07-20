@@ -2,7 +2,7 @@
 
 Personal portfolio site built with [Astro](https://astro.build/) using the
 **Signal** design system: navy technical layout, simple menu, and dark/light
-mode. Includes Home, Resume, and Hobbies, plus a link to
+mode. Includes Home, Résumé, and Hobbies, plus a link to
 [Christian Staresina Prints](https://christianstaresinaprints.com).
 
 ## Local development

@@ -4,7 +4,7 @@ export const resumePdfUrl = "/files/christian-staresina-resume.pdf";
 
 export const navItems = [
   { href: "", label: "Home" },
-  { href: "resume", label: "Resume" },
+  { href: "resume", label: "Résumé" },
   { href: "hobbies", label: "Hobbies" },
 ] as const;
 
@@ -15,7 +15,7 @@ export const about = {
 
 export const resume = {
   summary:
-    "Career highlights below. Download the PDF for the complete resume.",
+    "Career highlights below. Download the PDF for the complete résumé.",
   experience: [
     {
       role: "Electrical Engineer II",
