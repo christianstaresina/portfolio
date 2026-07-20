@@ -1,8 +1,9 @@
 ---
 import {
   about,
-  hobbies,
   linkedInUrl,
+  photography,
+  projects,
   resume,
   resumePdfUrl,
 } from "../data/site";
@@ -107,23 +108,51 @@ const { page } = Astro.props;
       <h1 class="v-title">Subjects outside the day job</h1>
       <p class="v-lede">Photography, training tools, and personal finance systems.</p>
 
-      <ul class="v-list">
-        {hobbies.map((hobby) => (
-          <li>
-            <a
-              href={hobby.link.href}
-              target={hobby.link.external ? "_blank" : undefined}
-              rel={hobby.link.external ? "noreferrer" : undefined}
-            >
-              <div class="v-meta">
-                <span>{hobby.meta}</span>
-              </div>
-              <h2>{hobby.title}</h2>
-              <p>{hobby.summary}</p>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div class="v-hobby-sections">
+        <section class="v-hobby-section" aria-labelledby="photography-heading">
+          <h2 id="photography-heading" class="v-hobby-section__title">
+            Photography
+          </h2>
+          <ul class="v-list">
+            <li>
+              <a
+                href={photography.link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div class="v-meta">
+                  <span>{photography.meta}</span>
+                </div>
+                <h3>{photography.title}</h3>
+                <p>{photography.summary}</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="v-hobby-section" aria-labelledby="projects-heading">
+          <h2 id="projects-heading" class="v-hobby-section__title">
+            GitHub projects
+          </h2>
+          <ul class="v-list">
+            {projects.map((project) => (
+              <li>
+                <a
+                  href={project.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div class="v-meta">
+                    <span>{project.meta}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </section>
   )
 }

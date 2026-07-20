@@ -55,14 +55,15 @@ export const resume = {
     "OrCAD/Allegro · KiCad · Schematic capture · PCB layout · Oscilloscopes · Multimeters · SMT soldering · FDM 3D printing · SolidWorks · Autodesk Inventor · Fusion 360 · LTspice · Embedded C/C++ · Python · Git · Azure DevOps · Microsoft 365",
 } as const;
 
-export const hobbies = [
-  {
-    title: "Photography",
-    summary:
-      "Fine-art prints and field work. Explore the collection at the print shop while the full gallery section expands.",
-    meta: "Visit print shop",
-    link: { href: shopUrl, external: true },
-  },
+export const photography = {
+  title: "Christian Staresina Prints",
+  summary:
+    "Fine-art prints and field work. Explore the collection at the print shop while the full gallery section expands.",
+  meta: "Visit print shop",
+  link: { href: shopUrl, external: true },
+} as const;
+
+export const projects = [
   {
     title: "Laser Timer System V1",
     summary:
